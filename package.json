@@ -1,0 +1,21 @@
+{
+  "name": "pranaya-reddy-portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["portfolio", "personal-website", "software-engineer"],
+  "author": "Venkata Pranaya Reddy Sanivarapu",
+  "license": "ISC",
+  "description": "Personal portfolio website showcasing professional experience, technical skills, and running achievements",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
