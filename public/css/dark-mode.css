@@ -35,8 +35,14 @@ body.dark-mode .navbar {
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--dark-border);
     box-shadow: 0 4px 30px var(--dark-shadow);
-    
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+body.dark-mode .navbar.navbar-scrolled {
+    background: rgba(10, 10, 10, 0.98) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(42, 42, 42, 0.8) !important;
 }
 
 body.dark-mode .nav-logo a {

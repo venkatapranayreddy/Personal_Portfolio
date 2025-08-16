@@ -9,16 +9,16 @@ class DarkModeManager {
     init() {
         // Check for saved preference or default to light mode
         this.isDarkMode = localStorage.getItem('darkMode') === 'true';
-        
+
         // Apply initial theme
         this.applyTheme();
-        
+
         // Create and add toggle button to navigation
         this.createToggleButton();
-        
+
         // Add event listeners
         this.addEventListeners();
-        
+
         // Add smooth transition class after initial load
         setTimeout(() => {
             document.body.classList.add('theme-transition-ready');
@@ -83,14 +83,19 @@ class DarkModeManager {
         this.applyTheme();
         this.savePreference();
         this.updateToggleButton();
-        
+
+        // Update navbar if navbar manager exists
+        if (window.navbarManager) {
+            setTimeout(() => window.navbarManager.forceUpdate(), 100);
+        }
+
         // Add toggle animation
         this.animateToggle();
     }
 
     applyTheme() {
         const body = document.body;
-        
+
         if (this.isDarkMode) {
             body.classList.add('dark-mode');
             // Add CSS file for dark mode
@@ -130,11 +135,11 @@ class DarkModeManager {
         if (this.toggleButton) {
             const icon = this.toggleButton.querySelector('i');
             const text = this.toggleButton.querySelector('span');
-            
+
             if (icon) {
                 icon.className = `fas ${this.isDarkMode ? 'fa-sun' : 'fa-moon'}`;
             }
-            
+
             if (text) {
                 text.textContent = this.isDarkMode ? 'Light' : 'Dark';
             }
@@ -147,7 +152,7 @@ class DarkModeManager {
             this.toggleButton.style.animation = 'none';
             this.toggleButton.offsetHeight; // Trigger reflow
             this.toggleButton.style.animation = 'togglePulse 0.6s ease-in-out';
-            
+
             // Remove animation after it completes
             setTimeout(() => {
                 this.toggleButton.style.animation = '';

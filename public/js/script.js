@@ -43,16 +43,117 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+// Enhanced Navbar scroll behavior with better UX
+class NavbarManager {
+    constructor() {
+        this.navbar = document.querySelector('.navbar');
+        this.isScrolled = false;
+        this.ticking = false;
+        this.scrollThreshold = 50;
+        this.init();
     }
+
+    init() {
+        if (!this.navbar) return;
+        
+        // Use requestAnimationFrame for better performance
+        window.addEventListener('scroll', () => {
+            if (!this.ticking) {
+                requestAnimationFrame(() => {
+                    this.updateNavbar();
+                    this.ticking = false;
+                });
+                this.ticking = true;
+            }
+        });
+
+        // Listen for theme changes
+        this.observeThemeChanges();
+        
+        // Set initial state
+        this.updateNavbar();
+    }
+
+    updateNavbar() {
+        const scrollY = window.scrollY;
+        const shouldBeScrolled = scrollY > this.scrollThreshold;
+        
+        // Only update if state changed to avoid unnecessary DOM manipulation
+        if (shouldBeScrolled !== this.isScrolled) {
+            this.isScrolled = shouldBeScrolled;
+            this.applyNavbarStyles();
+        }
+    }
+
+    applyNavbarStyles() {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        
+        // Remove any inline styles to let CSS classes take precedence
+        this.navbar.style.background = '';
+        this.navbar.style.boxShadow = '';
+        
+        // Add/remove scrolled class for CSS-based styling
+        if (this.isScrolled) {
+            this.navbar.classList.add('navbar-scrolled');
+        } else {
+            this.navbar.classList.remove('navbar-scrolled');
+        }
+        
+        // Apply theme-specific styles only if needed
+        if (this.isScrolled) {
+            if (isDarkMode) {
+                this.navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+                this.navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.6)';
+                this.navbar.style.backdropFilter = 'blur(20px)';
+                this.navbar.style.borderBottom = '1px solid rgba(42, 42, 42, 0.8)';
+            } else {
+                this.navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                this.navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+                this.navbar.style.backdropFilter = 'blur(20px)';
+                this.navbar.style.borderBottom = '1px solid rgba(0, 0, 0, 0.1)';
+            }
+        } else {
+            // Reset to default styles
+            if (isDarkMode) {
+                this.navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                this.navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+                this.navbar.style.backdropFilter = 'blur(20px)';
+                this.navbar.style.borderBottom = '1px solid rgba(42, 42, 42, 0.6)';
+            } else {
+                this.navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                this.navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                this.navbar.style.backdropFilter = 'blur(10px)';
+                this.navbar.style.borderBottom = 'none';
+            }
+        }
+    }
+
+    observeThemeChanges() {
+        // Watch for theme changes and update navbar accordingly
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    // Theme changed, update navbar styles
+                    setTimeout(() => this.applyNavbarStyles(), 50);
+                }
+            });
+        });
+
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    }
+
+    // Public method to force update (useful when theme is toggled)
+    forceUpdate() {
+        this.updateNavbar();
+    }
+}
+
+// Initialize navbar manager
+document.addEventListener('DOMContentLoaded', () => {
+    window.navbarManager = new NavbarManager();
 });
 
 // Active navigation link highlighting
