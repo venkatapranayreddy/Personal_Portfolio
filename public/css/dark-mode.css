@@ -286,6 +286,43 @@ body.dark-mode .certification-card h3 {
     color: var(--dark-text-primary);
 }
 
+/* Enhanced certification logo styling for dark mode */
+body.dark-mode .certification-logo {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .certification-card:hover .certification-logo {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode specific logo adjustments with enhanced glow */
+body.dark-mode .aws-logo {
+    background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+}
+
+body.dark-mode .certification-card:hover .aws-logo {
+    background: linear-gradient(135deg, #FF9900 0%, #FF8533 100%);
+    box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6);
+}
+
+body.dark-mode .azure-logo {
+    background: linear-gradient(135deg, #0078D4 0%, #005A9F 100%);
+}
+
+body.dark-mode .certification-card:hover .azure-logo {
+    background: linear-gradient(135deg, #0078D4 0%, #40E0D0 100%);
+    box-shadow: 0 12px 30px rgba(0, 120, 212, 0.6);
+}
+
+body.dark-mode .oracle-logo {
+    background: linear-gradient(135deg, #F80000 0%, #C70000 100%);
+}
+
+body.dark-mode .certification-card:hover .oracle-logo {
+    background: linear-gradient(135deg, #F80000 0%, #FF4444 100%);
+    box-shadow: 0 12px 30px rgba(248, 0, 0, 0.6);
+}
+
 /* Dark Mode Footer */
 body.dark-mode .footer {
     background: var(--dark-bg-tertiary);

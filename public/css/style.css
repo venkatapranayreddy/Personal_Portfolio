@@ -525,37 +525,70 @@ body {
 }
 
 .certification-logo {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    font-size: 2.5rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.certification-logo svg {
-    width: 100%;
-    height: 100%;
+.certification-card:hover .certification-logo {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.certification-logo i {
+    transition: all 0.3s ease;
+}
+
+.certification-card:hover .certification-logo i {
+    transform: scale(1.1);
 }
 
 /* AWS Logo */
 .aws-logo {
-    color: #FF9900;
+    background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
 }
 
-/* Microsoft Logo */
-.microsoft-logo {
-    color: #00A4EF;
+.certification-card:hover .aws-logo {
+    background: linear-gradient(135deg, #FF9900 0%, #FF8533 100%);
+    box-shadow: 0 12px 30px rgba(255, 153, 0, 0.4);
+}
+
+/* Azure Logo */
+.azure-logo {
+    background: linear-gradient(135deg, #0078D4 0%, #005A9F 100%);
+}
+
+.certification-card:hover .azure-logo {
+    background: linear-gradient(135deg, #0078D4 0%, #40E0D0 100%);
+    box-shadow: 0 12px 30px rgba(0, 120, 212, 0.4);
 }
 
 /* Oracle Logo */
 .oracle-logo {
-    color: #F80000;
+    background: linear-gradient(135deg, #F80000 0%, #C70000 100%);
+}
+
+.certification-card:hover .oracle-logo {
+    background: linear-gradient(135deg, #F80000 0%, #FF4444 100%);
+    box-shadow: 0 12px 30px rgba(248, 0, 0, 0.4);
 }
 
 /* Google Logo */
 .google-logo {
-    color: #4285F4;
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 25%, #FBBC05 50%, #EA4335 100%);
+}
+
+.certification-card:hover .google-logo {
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 25%, #FBBC05 50%, #EA4335 100%);
+    box-shadow: 0 12px 30px rgba(66, 133, 244, 0.4);
 }
 
 .certification-card h3 {
