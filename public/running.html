@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="js/dark-mode.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
+    <script src="js/3d-effects.js" defer></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -18,7 +22,6 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/careers" class="nav-link">Careers</a></li>
                 <li><a href="/running" class="nav-link active">Running</a></li>
             </ul>
             <div class="hamburger">
@@ -36,11 +39,14 @@
                 <div class="running-hero-text">
                     <h1 class="running-hero-title">My Running Journey</h1>
                     <p class="running-hero-subtitle">Passionate runner and marathon enthusiast</p>
-                    <p class="running-hero-description">From casual jogging to marathon training, running has become an integral part of my life. It's not just about physical fitness, but mental strength, discipline, and pushing beyond limits.</p>
+                    <p class="running-hero-description">From casual jogging to marathon training, running has become an
+                        integral part of my life. It's not just about physical fitness, but mental strength, discipline,
+                        and pushing beyond limits.</p>
                 </div>
                 <div class="running-hero-image">
                     <div class="running-image-placeholder">
-                        <img src="images/523d025f-2263-4baa-be53-4592adaf3099.jpg" alt="A photo of Pranay Reddy" class="profile-photo">
+                        <img src="images/523d025f-2263-4baa-be53-4592adaf3099.jpg" alt="A photo of Pranay Reddy"
+                            class="profile-photo">
                     </div>
                 </div>
             </div>
@@ -105,7 +111,8 @@
             <div class="strava-content">
                 <div class="strava-info">
                     <h2>Follow My Running Journey</h2>
-                    <p>Track my runs, races, and training progress on Strava. Connect with me to share running experiences and motivate each other!</p>
+                    <p>Track my runs, races, and training progress on Strava. Connect with me to share running
+                        experiences and motivate each other!</p>
                     <a href="#" class="btn btn-strava" onclick="openStrava()">
                         <i class="fab fa-strava"></i>
                         Follow on Strava
@@ -138,18 +145,29 @@
                     <div class="story-image-small">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <p>I began distance running at the age of 12, starting with a 5km event where I finished in 45 minutes. At that time, I knew nothing about running, but I enjoyed participating in large group events. </p>
-                    
-                    <p>As I continued, I became determined to improve my timing. I consistently trained and participated in events, eventually achieving a personal best of under 25 minutes for a 5km race.</p>
-                    
-                    <p>Although I didn’t understand pacing for 5km, 10km, or 1600m races, my father helped me improve. I continued endurance sports until I was 16 in 2016, but then I moved to a hostel for my education, where I had limited time for outdoor activities. We were only allowed 30 minutes for physical activity and couldn’t leave the restricted area, which led me to quit running.</p>
-                    
-                    <p>In 2018, I started my undergraduate studies but didn’t engage in any sports or running, leading to a sedentary lifestyle for nearly 6-7 years. After a long break, I moved to the USA for my master’s degree, weighing 100kg and feeling financially strained. I wanted to become fit, </p>
-                    
-                    <p>so I began going to the gym and boxing. Inspired by my uncle, who ran a half marathon at 52, I realized what was holding me back.</p>
-                    
-                    <p>Despite initial doubts, I started running daily without much hope or commitment. Gradually, I found joy in running longer distances. I never imagined running more than 10km, but within six months, I was running six times a week and completed a full marathon (42.2km). </p>
-                    
+                    <p>I began distance running at the age of 12, starting with a 5km event where I finished in 45
+                        minutes. At that time, I knew nothing about running, but I enjoyed participating in large group
+                        events. </p>
+
+                    <p>As I continued, I became determined to improve my timing. I consistently trained and participated
+                        in events, eventually achieving a personal best of under 25 minutes for a 5km race.</p>
+
+                    <p>Although I didn’t understand pacing for 5km, 10km, or 1600m races, my father helped me improve. I
+                        continued endurance sports until I was 16 in 2016, but then I moved to a hostel for my
+                        education, where I had limited time for outdoor activities. We were only allowed 30 minutes for
+                        physical activity and couldn’t leave the restricted area, which led me to quit running.</p>
+
+                    <p>In 2018, I started my undergraduate studies but didn’t engage in any sports or running, leading
+                        to a sedentary lifestyle for nearly 6-7 years. After a long break, I moved to the USA for my
+                        master’s degree, weighing 100kg and feeling financially strained. I wanted to become fit, </p>
+
+                    <p>so I began going to the gym and boxing. Inspired by my uncle, who ran a half marathon at 52, I
+                        realized what was holding me back.</p>
+
+                    <p>Despite initial doubts, I started running daily without much hope or commitment. Gradually, I
+                        found joy in running longer distances. I never imagined running more than 10km, but within six
+                        months, I was running six times a week and completed a full marathon (42.2km). </p>
+
                     <!-- <p>My goal is to inspire others to discover the joy of running and to show that anyone can become a runner, regardless of their starting point. The running community is incredibly supportive, and I'm grateful to be part of this amazing family.</p> -->
                 </div>
             </div>
@@ -208,12 +226,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        function openStrava() {
-            // Replace with your actual Strava profile URL
-            //alert('Strava profile link will be added when you provide your Strava username.');
-             window.open('https://www.strava.com/athletes/32237095', '_blank');
-        }
-    </script>
 </body>
-</html> 
+
+</html>

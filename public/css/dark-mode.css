@@ -777,75 +777,6 @@ body.dark-mode .projects-section::-webkit-scrollbar-thumb:hover {
     }
 }
 
-body.dark-mode .detailed-experience {
-    background: var(--dark-bg-secondary);
-}
-
-body.dark-mode .experience-card {
-    background: var(--dark-bg-card);
-    border: 1px solid var(--dark-border);
-    box-shadow: 0 8px 32px var(--dark-shadow);
-}
-
-body.dark-mode .experience-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--dark-shadow), 0 0 30px var(--dark-glow);
-    border-color: var(--dark-accent-primary);
-}
-
-body.dark-mode .company-logo {
-    background: var(--dark-gradient-primary);
-    box-shadow: 0 0 20px var(--dark-glow);
-}
-
-body.dark-mode .experience-info h3 {
-    color: var(--dark-text-primary);
-}
-
-body.dark-mode .experience-info h4 {
-    color: var(--dark-accent-tertiary);
-}
-
-body.dark-mode .experience-content h5 {
-    color: var(--dark-text-primary);
-}
-
-body.dark-mode .tech-tag {
-    background: var(--dark-gradient-primary);
-    border: 1px solid var(--dark-accent-primary);
-    color: var(--dark-text-primary);
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-}
-
-body.dark-mode .projects-section {
-    background: var(--dark-bg-primary);
-}
-
-body.dark-mode .project-card {
-    background: var(--dark-bg-card);
-    border: 1px solid var(--dark-border);
-    box-shadow: 0 8px 32px var(--dark-shadow);
-}
-
-body.dark-mode .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--dark-shadow), 0 0 30px var(--dark-glow);
-    border-color: var(--dark-accent-primary);
-}
-
-body.dark-mode .project-image {
-    background: var(--dark-gradient-primary);
-    box-shadow: 0 0 20px var(--dark-glow);
-}
-
-body.dark-mode .project-content h3 {
-    color: var(--dark-text-primary);
-}
-
-body.dark-mode .project-content p {
-    color: var(--dark-text-muted);
-}
-
 /* Dark Mode Running Page */
 body.dark-mode .running-hero {
     background: var(--dark-gradient-running);
@@ -907,21 +838,6 @@ body.dark-mode .btn-strava:hover {
     background: var(--dark-gradient-primary);
     border-color: var(--dark-accent-primary);
     box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
-}
-
-body.dark-mode .stat-item {
-    background: var(--dark-bg-card);
-    border: 1px solid var(--dark-border);
-    box-shadow: 0 8px 32px var(--dark-shadow);
-}
-
-body.dark-mode .stat-number {
-    color: #10b981;
-    text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
-}
-
-body.dark-mode .stat-label {
-    color: var(--dark-text-muted);
 }
 
 body.dark-mode .story-section {
@@ -1070,8 +986,56 @@ body.dark-mode .nav-menu {
         padding: 6px 12px;
         font-size: 0.8rem;
     }
-    
+
     body.dark-mode .hero-title {
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
-} 
+}
+
+/* ============================================================
+   Dark Mode — Landing Page
+   ============================================================ */
+body.dark-mode .landing-page {
+    background: var(--dark-bg-primary);
+}
+
+body.dark-mode .landing-name {
+    color: var(--dark-text-primary);
+    text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+body.dark-mode .landing-tagline {
+    color: var(--dark-text-muted);
+}
+
+body.dark-mode .choice-card {
+    background: var(--dark-bg-card);
+    border-color: var(--dark-border);
+    box-shadow: 0 4px 24px var(--dark-shadow);
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .choice-card::before {
+    background: var(--dark-gradient-primary);
+}
+
+body.dark-mode .choice-card:hover {
+    box-shadow: 0 12px 40px var(--dark-shadow), 0 0 30px var(--dark-glow);
+}
+
+body.dark-mode .choice-icon {
+    color: var(--dark-accent-primary);
+    text-shadow: 0 0 15px var(--dark-glow);
+}
+
+body.dark-mode .choice-card:hover .choice-icon {
+    color: var(--dark-accent-secondary);
+}
+
+body.dark-mode .choice-title {
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .choice-subtitle {
+    color: var(--dark-text-muted);
+}

@@ -15,18 +15,17 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
 
 // Resume Download Function
 function downloadResume() {
-    // Create a temporary link element
     const link = document.createElement('a');
-    link.href = 'assets/_Pranay_Sanivarapu_SDE___1_.pdf'; // Replace with actual resume file path
-    link.download = 'Pranay_Sanivarapu_SDE___1_.pdf'; 
-    
-    // Show alert for now (replace with actual resume file)
-    alert('Hit okay to Download the resume');
-    
-    // Uncomment the line below when you have the actual resume file
+    link.href = 'assets/_Pranay_Sanivarapu_SDE___1_.pdf';
+    link.download = 'Pranay_Sanivarapu_SDE___1_.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+// Open Strava Profile
+function openStrava() {
+    window.open('https://www.strava.com/athletes/32237095', '_blank');
 }
 
 // Smooth scrolling for navigation links
@@ -50,6 +49,7 @@ class NavbarManager {
         this.isScrolled = false;
         this.ticking = false;
         this.scrollThreshold = 50;
+        this.themeObserver = null;
         this.init();
     }
 
@@ -130,7 +130,7 @@ class NavbarManager {
 
     observeThemeChanges() {
         // Watch for theme changes and update navbar accordingly
-        const observer = new MutationObserver((mutations) => {
+        this.themeObserver = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                     // Theme changed, update navbar styles
@@ -139,7 +139,7 @@ class NavbarManager {
             });
         });
 
-        observer.observe(document.body, {
+        this.themeObserver.observe(document.body, {
             attributes: true,
             attributeFilter: ['class']
         });
@@ -149,33 +149,19 @@ class NavbarManager {
     forceUpdate() {
         this.updateNavbar();
     }
+
+    // Cleanup method to disconnect observer
+    destroy() {
+        if (this.themeObserver) {
+            this.themeObserver.disconnect();
+            this.themeObserver = null;
+        }
+    }
 }
 
 // Initialize navbar manager
 document.addEventListener('DOMContentLoaded', () => {
     window.navbarManager = new NavbarManager();
-});
-
-// Active navigation link highlighting
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
 });
 
 // Intersection Observer for animations
