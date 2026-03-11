@@ -332,8 +332,65 @@ body.dark-mode .footer {
 /* Dark Mode Careers Page */
 body.dark-mode .careers-hero {
     background: var(--dark-gradient-hero);
+    position: relative;
+    overflow: hidden;
 }
 
+body.dark-mode .careers-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="career-grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(99, 102, 241, 0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23career-grid)"/></svg>');
+    opacity: 0.3;
+}
+
+body.dark-mode .careers-hero-title {
+    color: var(--dark-text-primary);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .careers-hero-subtitle {
+    color: var(--dark-accent-tertiary);
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .careers-stats {
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .stat-item {
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .stat-item:hover {
+    background: rgba(99, 102, 241, 0.3);
+    border-color: var(--dark-accent-primary);
+    box-shadow: 0 10px 30px var(--dark-glow);
+    transform: translateY(-8px) scale(1.05);
+}
+
+body.dark-mode .stat-number {
+    color: var(--dark-text-primary);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .stat-label {
+    color: var(--dark-accent-tertiary);
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+}
+
+/* Enhanced Experience Cards */
 body.dark-mode .detailed-experience {
     background: var(--dark-bg-secondary);
 }
@@ -342,10 +399,12 @@ body.dark-mode .experience-card {
     background: var(--dark-bg-card);
     border: 1px solid var(--dark-border);
     box-shadow: 0 8px 32px var(--dark-shadow);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.dark-mode .experience-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-12px);
     box-shadow: 0 20px 40px var(--dark-shadow), 0 0 30px var(--dark-glow);
     border-color: var(--dark-accent-primary);
 }
@@ -353,27 +412,150 @@ body.dark-mode .experience-card:hover {
 body.dark-mode .company-logo {
     background: var(--dark-gradient-primary);
     box-shadow: 0 0 20px var(--dark-glow);
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .experience-card:hover .company-logo {
+    background: var(--dark-gradient-secondary);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+    transform: scale(1.1);
 }
 
 body.dark-mode .experience-info h3 {
     color: var(--dark-text-primary);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .experience-info h4 {
     color: var(--dark-accent-tertiary);
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+body.dark-mode .location,
+body.dark-mode .duration {
+    color: var(--dark-text-muted);
 }
 
 body.dark-mode .experience-content h5 {
     color: var(--dark-text-primary);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .tech-tag {
     background: var(--dark-gradient-primary);
-    border: 1px solid var(--dark-accent-primary);
-    color: var(--dark-text-primary);
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    border: 2px solid var(--dark-accent-primary);
+    color: var(--dark-text-primary) !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
+body.dark-mode .tech-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+body.dark-mode .tech-tag:hover::before {
+    left: 100%;
+}
+
+body.dark-mode .tech-tag:hover {
+    background: var(--dark-gradient-secondary);
+    border-color: var(--dark-accent-tertiary);
+    box-shadow: 0 6px 25px rgba(6, 182, 212, 0.5);
+    transform: translateY(-3px) scale(1.08);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+body.dark-mode .achievements ul li {
+    color: var(--dark-text-primary) !important;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+body.dark-mode .achievements ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--dark-accent-primary);
+    text-shadow: 0 0 10px var(--dark-glow);
+}
+
+/* Fix all text colors in experience cards */
+body.dark-mode .experience-content p,
+body.dark-mode .experience-content li,
+body.dark-mode .experience-content span,
+body.dark-mode .experience-content div {
+    color: var(--dark-text-primary) !important;
+}
+
+body.dark-mode .tech-stack p,
+body.dark-mode .achievements p {
+    color: var(--dark-text-secondary) !important;
+}
+
+/* Ensure all list items are properly styled */
+body.dark-mode .achievements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body.dark-mode .achievements ul li {
+    background: rgba(6, 182, 212, 0.05);
+    padding: 0.8rem 1rem 0.8rem 2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--dark-accent-tertiary);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .achievements ul li:hover {
+    background: rgba(6, 182, 212, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+}
+
+/* Enhanced experience header styling */
+body.dark-mode .experience-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--dark-border);
+    position: relative;
+}
+
+body.dark-mode .experience-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--dark-gradient-primary);
+    box-shadow: 0 0 10px var(--dark-glow);
+}
+
+/* Enhanced Projects Section */
 body.dark-mode .projects-section {
     background: var(--dark-bg-primary);
 }
@@ -382,10 +564,12 @@ body.dark-mode .project-card {
     background: var(--dark-bg-card);
     border: 1px solid var(--dark-border);
     box-shadow: 0 8px 32px var(--dark-shadow);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.dark-mode .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px var(--dark-shadow), 0 0 30px var(--dark-glow);
     border-color: var(--dark-accent-primary);
 }
@@ -393,14 +577,204 @@ body.dark-mode .project-card:hover {
 body.dark-mode .project-image {
     background: var(--dark-gradient-primary);
     box-shadow: 0 0 20px var(--dark-glow);
+    color: var(--dark-text-primary);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .project-card:hover .project-image {
+    background: var(--dark-gradient-secondary);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+    transform: scale(1.1) rotate(5deg);
 }
 
 body.dark-mode .project-content h3 {
     color: var(--dark-text-primary);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .project-content p {
-    color: var(--dark-text-muted);
+    color: var(--dark-text-secondary);
+}
+
+/* Enhanced Animations for Careers Page */
+@keyframes careersFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.dark-mode .experience-card,
+body.dark-mode .project-card {
+    animation: careersFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode .experience-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+body.dark-mode .experience-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+body.dark-mode .project-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+body.dark-mode .project-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+body.dark-mode .project-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+/* Enhanced Visual Hierarchy */
+body.dark-mode .tech-stack {
+    border: 2px solid var(--dark-accent-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-mode .tech-stack::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--dark-gradient-primary);
+    box-shadow: 0 0 15px var(--dark-glow);
+}
+
+body.dark-mode .achievements {
+    border-left: 3px solid var(--dark-accent-tertiary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(6, 182, 212, 0.08);
+    border-radius: 0 12px 12px 0;
+    backdrop-filter: blur(15px);
+}
+
+body.dark-mode .tech-stack h5 {
+    color: var(--dark-accent-primary);
+    text-shadow: 0 0 15px var(--dark-glow);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.dark-mode .tech-stack h5::before {
+    content: '⚡';
+    font-size: 1.2rem;
+    color: var(--dark-accent-primary);
+    text-shadow: 0 0 10px var(--dark-glow);
+}
+
+body.dark-mode .achievements h5 {
+    color: var(--dark-accent-tertiary);
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.dark-mode .achievements h5::before {
+    content: '🎯';
+    font-size: 1.2rem;
+}
+
+/* Improved Hover Effects */
+body.dark-mode .experience-header {
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .experience-card:hover .experience-header {
+    transform: translateX(5px);
+}
+
+/* Enhanced Scrollbar for Careers Page */
+body.dark-mode .detailed-experience::-webkit-scrollbar,
+body.dark-mode .projects-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.dark-mode .detailed-experience::-webkit-scrollbar-track,
+body.dark-mode .projects-section::-webkit-scrollbar-track {
+    background: var(--dark-bg-secondary);
+    border-radius: 4px;
+}
+
+body.dark-mode .detailed-experience::-webkit-scrollbar-thumb,
+body.dark-mode .projects-section::-webkit-scrollbar-thumb {
+    background: var(--dark-gradient-primary);
+    border-radius: 4px;
+}
+
+body.dark-mode .detailed-experience::-webkit-scrollbar-thumb:hover,
+body.dark-mode .projects-section::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-gradient-secondary);
+}
+
+/* Responsive Design for Dark Mode Careers Page */
+@media (max-width: 768px) {
+    body.dark-mode .careers-hero-title {
+        font-size: 2.5rem;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    
+    body.dark-mode .careers-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    
+    body.dark-mode .stat-item {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    body.dark-mode .experience-card {
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    body.dark-mode .experience-card:hover {
+        transform: translateY(-8px);
+    }
+    
+    body.dark-mode .project-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    body.dark-mode .tech-tags {
+        gap: 0.5rem;
+    }
+    
+    body.dark-mode .tech-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 /* Dark Mode Running Page */
@@ -464,21 +838,6 @@ body.dark-mode .btn-strava:hover {
     background: var(--dark-gradient-primary);
     border-color: var(--dark-accent-primary);
     box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
-}
-
-body.dark-mode .stat-item {
-    background: var(--dark-bg-card);
-    border: 1px solid var(--dark-border);
-    box-shadow: 0 8px 32px var(--dark-shadow);
-}
-
-body.dark-mode .stat-number {
-    color: #10b981;
-    text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
-}
-
-body.dark-mode .stat-label {
-    color: var(--dark-text-muted);
 }
 
 body.dark-mode .story-section {
@@ -627,8 +986,56 @@ body.dark-mode .nav-menu {
         padding: 6px 12px;
         font-size: 0.8rem;
     }
-    
+
     body.dark-mode .hero-title {
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
-} 
+}
+
+/* ============================================================
+   Dark Mode — Landing Page
+   ============================================================ */
+body.dark-mode .landing-page {
+    background: var(--dark-bg-primary);
+}
+
+body.dark-mode .landing-name {
+    color: var(--dark-text-primary);
+    text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+body.dark-mode .landing-tagline {
+    color: var(--dark-text-muted);
+}
+
+body.dark-mode .choice-card {
+    background: var(--dark-bg-card);
+    border-color: var(--dark-border);
+    box-shadow: 0 4px 24px var(--dark-shadow);
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .choice-card::before {
+    background: var(--dark-gradient-primary);
+}
+
+body.dark-mode .choice-card:hover {
+    box-shadow: 0 12px 40px var(--dark-shadow), 0 0 30px var(--dark-glow);
+}
+
+body.dark-mode .choice-icon {
+    color: var(--dark-accent-primary);
+    text-shadow: 0 0 15px var(--dark-glow);
+}
+
+body.dark-mode .choice-card:hover .choice-icon {
+    color: var(--dark-accent-secondary);
+}
+
+body.dark-mode .choice-title {
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .choice-subtitle {
+    color: var(--dark-text-muted);
+}
