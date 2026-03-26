@@ -4,42 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranaya Reddy - Portfolio</title>
+    <title>Pranaya Reddy</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/jpeg" href="images/1727987498279.jpeg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <script src="js/dark-mode.js" defer></script>
 </head>
 
 <body>
     <!-- Landing Page -->
     <div class="landing-page">
-        <div class="landing-header">
-            <h1 class="landing-name">Hi, I'm Pranaya</h1>
-            <p class="landing-tagline">Software Engineer &bull; Marathon Runner &bull; Builder of Things</p>
+        <!-- Subtle grain overlay -->
+        <div class="grain-overlay"></div>
+
+        <div class="landing-container">
+            <div class="landing-left">
+                <p class="landing-eyebrow">Portfolio &mdash; 2026</p>
+                <h1 class="landing-name">Pranaya<br><span class="landing-name-accent">Reddy</span></h1>
+                <p class="landing-tagline">Software Engineer. Marathon Runner.<br>Builder of Things.</p>
+                <div class="landing-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Open to opportunities</span>
+                </div>
+            </div>
+
+            <div class="landing-right">
+                <a href="/professional" class="choice-card choice-card--pro">
+                    <div class="choice-card-number">01</div>
+                    <div class="choice-card-content">
+                        <h2 class="choice-title">Professional</h2>
+                        <p class="choice-subtitle">Skills, experience, and projects</p>
+                    </div>
+                    <div class="choice-card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="/running" class="choice-card choice-card--personal">
+                    <div class="choice-card-number">02</div>
+                    <div class="choice-card-content">
+                        <h2 class="choice-title">Personal</h2>
+                        <p class="choice-subtitle">Running journey and achievements</p>
+                    </div>
+                    <div class="choice-card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
         </div>
 
-        <div class="landing-cards">
-            <a href="/professional" class="choice-card">
-                <div class="choice-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <h2 class="choice-title">Professional</h2>
-                <p class="choice-subtitle">Skills, experience, and projects</p>
-            </a>
-
-            <a href="/running" class="choice-card">
-                <div class="choice-icon">
-                    <i class="fas fa-person-running"></i>
-                </div>
-                <h2 class="choice-title">Personal</h2>
-                <p class="choice-subtitle">Running journey and achievements</p>
-            </a>
+        <div class="landing-footer">
+            <div class="landing-social">
+                <a href="https://www.linkedin.com/in/pranayasanivarapu/" target="_blank" class="landing-social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/pranaysanivarapu" target="_blank" class="landing-social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/pranayreddy__/" target="_blank" class="landing-social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="landing-copyright">&copy; 2026 Pranaya Reddy</p>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/landing.js"></script>
 </body>
 
 </html>
